@@ -1,0 +1,4 @@
+{ "scimapInfoVersion" : 1,"startTime" : "Thu Sep 18 18:36:17 2014","startEpoch" : "1411079777","jobID" : "16222613839223790698650621411079777"}
+{ "scimapInfoVersion" : 2,"startTime" : "Thu Sep 18 18:36:17 2014","startEpoch" : "1411079777","jobID" : "16222613839223790698650621411079777"}
+{ "scimapInfoVersion" : 3,"startTime" : "Thu Sep 18 18:36:17 2014","startEpoch" : "1411079777","jobID" : "16222613839223790698650621411079777"}
+{ "scimapInfoVersion" : 4,"startTime" : "Thu Sep 18 18:36:17 2014","startEpoch" : "1411079777","jobID" : "16222613839223790698650621411079777"}
