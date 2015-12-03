@@ -18,7 +18,10 @@ class MyHandler(FileSystemEventHandler):
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
     project_root = os.environ.get('vossm_root')
+    print project_root
     path = project_root + '/raw_data' 
+    print path
+    #path = 'raw_data/'
     event_handler = MyHandler()
     observer = Observer()
     observer.schedule(event_handler, path, recursive=True)

@@ -6,7 +6,7 @@ import sys
 import time
 
 project_root = os.environ.get('vossm_root')
-
+print project_root
 conn = S3Connection(os.environ.get('access_key'), os.environ.get('secret_access_key'))
 bucket = conn.get_bucket('vossm-datastore')
 
