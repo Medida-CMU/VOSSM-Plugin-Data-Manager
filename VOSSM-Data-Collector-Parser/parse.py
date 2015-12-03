@@ -6,24 +6,25 @@ import os
 import shutil
 from pprint import pprint
 from pymongo import MongoClient
+
 client = MongoClient();
 db = client['VOSSM'];
 collection = db['raw_data']
-def parseFile(filename):
- data = []
- with open(filename) as f:
-    for line in f:
-        #data.append(json.loads(line))
-	data = json.loads(line)
-	collection.insert(data)
 
- src = "/home/preethibaskar/raw_data/"
- dst = "/home/preethibaskar/parsed_data/"
- for file in os.listdir(src):
-    print file 
-    src_file = os.path.join(src, file)
-    dst_file = os.path.join(dst, file)
-    shutil.move(src_file, dst_file)
- pprint(data);
- return;
-#pprint(data[1]);
+def parseFile(filename):
+	data = []
+	with open(filename) as f:
+		for line in f:
+			data = json.loads(line)
+			collection.insert(data)
+
+		project_root = os.environ.get('vossm_root')
+		src = project_root + "/raw_data/"
+		dst = project_root + "/parsed_data/"
+
+	for file in os.listdir(src):
+		print file 
+		src_file = os.path.join(src, file)
+		dst_file = os.path.join(dst, file)
+		shutil.move(src_file, dst_file)
+	return;
