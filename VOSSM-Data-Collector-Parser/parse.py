@@ -19,7 +19,6 @@ def parseFile(filename):
 
 	data = json.loads(line)
 	new_json = json.loads(data[0], object_hook=remove_dot_key)
-	selected_data['version'] =new_json['scimapInfoVersion']
 	selected_data['hardware'] =new_json['platform']['hardware']
 	selected_data['system'] = new_json['platform']['system']
 	selected_data['user'] = new_json['user']
@@ -27,7 +26,8 @@ def parseFile(filename):
 	selected_data['end_time'] = new_json['endTime']
 	for key in new_json['pkgT']:
 		selected_data['_id'] = time.time()
-		selected_data['package'] = key
+		selected_data['package'] = key.split('/')[0]
+		selected_data['version'] = key.split('/')[1]
 		collection.insert(selected_data)
 	print(selected_data)
 	aggregateData()
