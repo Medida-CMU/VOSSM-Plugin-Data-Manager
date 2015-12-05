@@ -56,7 +56,8 @@ def aggregateData():
 												 'hardware' : "$hardware", 
 												 'system' : "$system"
 												}, 
-											"occurences": {"$sum": 1}
+											"occurences": {"$sum": 1},
+											"package" : "$package"
 											}},
 											{"$out" : "parsed_data"}
 								 ])
