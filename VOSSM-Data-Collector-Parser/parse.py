@@ -58,7 +58,7 @@ def aggregateData():
 												}, 
 											"occurences": {"$sum": 1}
 											}},
-											{ $project: { "package" : "$package" },
+											{ "$project": { "package" : "$package" },
 											{"$out" : "parsed_data"}
 								 ])
 
