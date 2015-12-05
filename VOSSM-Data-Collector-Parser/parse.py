@@ -56,9 +56,9 @@ def aggregateData():
 												 'hardware' : "$hardware", 
 												 'system' : "$system"
 												}, 
-											"occurences": {"$sum": 1},
-											"package" : "$package"
+											"occurences": {"$sum": 1}
 											}},
+											{ $project: { "package" : "$package" },
 											{"$out" : "parsed_data"}
 								 ])
 
