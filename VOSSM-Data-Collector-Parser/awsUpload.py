@@ -15,4 +15,4 @@ while True:
 	os.system(command)
 	command = "boto-rsync -a " + os.environ.get('access_key') + " -s " + os.environ.get('secret_access_key') + " s3://vossm-datastore/ShellMonitorData "+ project_root +"/raw_data/ShellMonitorData"
 	os.system(command)
-	time.sleep(60) 
+	time.sleep(20) 
