@@ -6,6 +6,10 @@ import os
 import shutil
 from pprint import pprint
 from pymongo import MongoClient
+from dateutil.parser import *
+from dateutil.tz import *
+from datetime import *
+
 client = MongoClient();
 db = client['VOSSM'];
 collection = db['raw_data']
@@ -24,8 +28,9 @@ def parseFile(filename):
 	selected_data['user'] = new_json['user']
 	selected_data['start_time'] = new_json['startTime']
 	selected_data['end_time'] = new_json['endTime']
+	selected_data['duration'] = (parse(new_json['endTime']) - parse(new_json['startTime'])).total_seconds()
 	for key in new_json['pkgT']:
-		selected_data['_id'] = time.time()
+		selected_data['_id'] = str(datetime.now())
 		selected_data['package'] = key.split('/')[0]
 		selected_data['version'] = key.split('/')[1]
 		collection.insert(selected_data)
