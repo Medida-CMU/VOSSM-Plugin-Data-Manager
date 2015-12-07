@@ -53,13 +53,13 @@ def parseFile(filename):
 	        selected_data['system'] = new_json['system']
 	        selected_data['user'] = new_json['user']
 	        selected_data['duration'] = new_json['duration']
-	        selected_data['version'] = new_json['version']
+	        selected_data['version'] = new_json['version'].split(':')[1]
 	        selected_data['package'] = new_json['package']
 	        selected_data['ipaddress'] = new_json['ipaddress']
 	        selected_data['language'] = "Unix"
 	        collection.insert(selected_data)
 	        print(selected_data)
-		#aggregateShellData()
+		aggregateData()
  # src = "raw_data/"
  # dst = "parsed_data/"
  # for file in os.listdir(src):
@@ -89,5 +89,7 @@ def aggregateData():
 											}},
 											{"$out" : "parsed_data"}
 								 ])
+	parsed_collection.update({},{"$set" : {"selected" :"true"}}, multi=True)
+
 
 #pprint(data[1]);
