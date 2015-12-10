@@ -67,7 +67,7 @@ def parseFile(filename):
  #    src_file = os.path.join(src, file)
  #    dst_file = os.path.join(dst, file)
  #    shutil.move(src_file, dst_file)
- return;
+ return 200;
 
 
 def remove_dot_key(obj):
