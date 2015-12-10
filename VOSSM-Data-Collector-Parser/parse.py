@@ -83,7 +83,8 @@ def aggregateData():
 												{'package': "$package",
 												 'version' : "$version",
 												 'hardware' : "$hardware", 
-												 'system' : "$system"
+												 'system' : "$system",
+												 'language' : "$language"
 												}, 
 											"occurences": {"$sum": 1}
 											}},
